@@ -14,12 +14,26 @@ document.addEventListener("DOMContentLoaded", () => {
         autoplay: {
             delay: 4000,
         },
+
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+            },
+            630: {
+                slidesPerView: 2,
+            },
+            991: {
+                slidesPerView: 3,
+            }
+        }
     });
 });
 
 const ui = () => {
     let html = document.querySelector("html");
+    let menu = document.querySelector('.header .nav');
     let btn_to_top = document.querySelector(".btn--to_top");
+    let btn_mobile_menu = document.querySelector('.btn--burger');
 
     document.querySelectorAll(".btn.btn--def").forEach((el) => {
         el.addEventListener("mousemove", (e) => {
@@ -51,9 +65,19 @@ const ui = () => {
         html.scrollTo(0, 0);
         window.location.hash = '';
     });
+
+    btn_mobile_menu.addEventListener('click', toggleMenu);
+    for ( let i = 0; i < menu.children.length; i++ ) {
+        menu.children[i].addEventListener('click', toggleMenu);
+    }
+
+    function toggleMenu() {
+        menu.classList.toggle('mobile--active');
+        btn_mobile_menu.classList.toggle('mobile--active');
+    }
 };
 
-// prices
+prices
 
 let prices = [];
 
@@ -106,12 +130,9 @@ const scroll_anim = () => {
             scroll_anim_items.forEach((el) => {
                 let itemHeight = el.offsetHeight || el.getBoundingClientRect().height,
                     itemOffset = offset(el).top,
-                    animStart = 3;
+                    animStart = 16;
 
-                let animItemPoint = window.innerHeight - itemHeight / animStart;
-                if(itemHeight > window.innerHeight) {
-                    animItemPoint = window.innerHeight - window.innerHeight / animStart;
-                }
+                let animItemPoint = window.innerHeight - window.innerHeight / animStart;
                 
 
                 if( (pageYOffset > itemOffset - animItemPoint ) && pageYOffset < (itemOffset + itemHeight) ) {

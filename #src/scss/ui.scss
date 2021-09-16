@@ -1,0 +1,130 @@
+:root{
+    --navy: #18216D;
+    --blue: #005FEC;
+    --lght: #00ECD0;
+    --white: #FFFFFF;
+}
+
+$navy-color: var(--navy); 
+$blue-color: var(--blue);
+$lght-color: var(--lght);
+$white-color: var(--white);
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1rem;
+
+    color: $navy-color;
+    scroll-behavior: smooth;
+}
+
+.container{
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+a{
+    color: $navy-color;
+    text-decoration: none;
+    cursor: pointer;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    &.link{
+        padding: 4px;
+    }
+
+    a:visited{
+        color: $navy-color;
+    }
+}
+
+.btn{
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background-color: transparent;
+    
+    &.btn--def{
+        position: relative;
+        font-size: 0.85rem;
+        padding: 16px 27px;
+        color: $white-color;
+        background-color: $navy-color;
+        border-radius: 6px;
+        overflow: hidden;
+        line-height: 1;
+
+        &:before{
+            content: '';
+            position: absolute;
+            top: var(--y);
+            left: var(--x);
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            transition: width .24s, height .24s, opacity .24s;
+            background-color: rgba(255, 255, 255, .2);
+            border-radius: 50%;
+        }
+
+        &:hover{
+            &:before{
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        &.btn--marine_color{
+            background-color: $lght-color;
+            color: $navy-color;
+            padding: 22px 38px;
+        }
+
+        &.btn--blue_color{
+            background-color: $blue-color;
+        }
+    }
+
+    &.btn--disactive{
+        font-size: 0.85rem;
+        padding: 16px 27px;
+        border-radius: 6px;
+        background-color: rgba(0, 95, 236, .1);
+        color: $navy-color;
+    }
+
+    &.btn--to_top{
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        margin-bottom: 50px;
+        margin-right: 50px;
+        padding: 10px;
+        transform: translateY(200px);
+        transition: 0.24s;
+
+        svg{
+            fill: $white-color;
+            width: 25px;
+            height: 25px;
+            display: block;
+        }
+
+        &.show{
+            transform: translateY(0);
+        }
+    }
+}
+

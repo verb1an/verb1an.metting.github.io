@@ -1,0 +1,73 @@
+#introsvgimage .svgimagebg{
+    stroke-dasharray: 100%;
+    stroke-dashoffset: 100%;
+}
+#introsvgimage .svgimagebg{
+    animation: introsvg_anim var(--tm);
+    animation-timing-function: ease;
+    animation-delay: var(--dl);
+    animation-fill-mode: forwards;
+}
+#introsvgimage .svgimage{
+    animation: introsvg_mainimg_anim 1.7s;
+    animation-timing-function: ease;
+    animation-delay: var(--dl);
+    animation-fill-mode: forwards;
+}
+
+@keyframes introsvg_anim{
+    0%{
+        stroke-dasharray: 100%;
+        stroke-dashoffset: 100%;
+    }100%{
+        stroke-dasharray: 100%;
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes introsvg_mainimg_anim {
+    0%{
+        transform: var(--trf);
+    }100%{
+        transform: translate(0, 0);
+    }
+}
+
+._scroll_animate-item{
+    transition: .5s;
+    transition-delay: .2s;
+}
+
+[data-sai=fade-up] {
+    transform: translate(0, -100px);
+}
+
+[data-sai=fade-right] {
+    transform: translate(100px, 0);
+}
+
+[data-sai=fade-down] {
+    transform: translate(0, 100px);
+}
+
+[data-sai=fade-left] {
+    transform: translate(-100px, 0);
+}
+
+[data-sai=stroke-dash] {
+    stroke-dasharray: 100%;
+    stroke-dashoffset: 100%;
+}
+
+[data-sai^=fade] {
+    opacity: 0;
+}
+
+[data-sai^=fade]._sai_animate {
+    transform: translate(0, 0);
+    opacity: 1;
+}
+
+[data-sai=stroke-dash]._sai_animate {
+    stroke-dasharray: 100%;
+    stroke-dashoffset: 0;
+}

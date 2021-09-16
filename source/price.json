@@ -1,0 +1,18 @@
+[
+    {
+        "time_type": "year",
+        "prices": [
+            "Free",
+            "$549",
+            "$1099"
+        ]
+    },
+    {
+        "time_type": "month",
+        "prices": [
+            "Free",
+            "$49",
+            "$99"
+        ]
+    }
+]
